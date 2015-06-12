@@ -49,10 +49,10 @@
 {
     // Set & read properties
     [realm beginWriteTransaction];
-    for (int i = 0; i < 100; i++) {
+    for (long long i = 6473924485019126; i < 6473924485020369; i++) {
         Dog *mydog = [[Dog alloc] init];
         mydog.key = i;
-        mydog.name = [NSString stringWithFormat:@"Rex %d", i];
+        mydog.name = [NSString stringWithFormat:@"Rex %llu", i];
         mydog.age = i;
         [realm addObject:mydog];
     }
@@ -60,7 +60,7 @@
     
     // Query using an NSPredicate
 //    NSPredicate *pred = [NSPredicate predicateWithFormat:@"key <= %llu AND key >= %llu", 9, 1];
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"key >= %llu AND key <= %llu", 1, 9];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"key >= %llu AND key <= %llu", 6473924485020126, 6473924485020369];
     RLMResults *dogs = [Dog objectsWithPredicate:pred];
     
     NSLog(@"Number of dogs: %li", (unsigned long)dogs.count);
