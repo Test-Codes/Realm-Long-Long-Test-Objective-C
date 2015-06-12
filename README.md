@@ -1,7 +1,8 @@
 # Realm-Predicate-Test-Objective-C
 
 ####Result
-```2015-06-12 14:34:45.536 Simple[10381:1071508] Number of dogs: 243
+```
+2015-06-12 14:34:45.536 Simple[10381:1071508] Number of dogs: 243
 2015-06-12 14:34:45.537 Simple[10381:1071508] Name : Rex 6473924485020126, Age : 6473924485020126, Key : 6473924485020126
 2015-06-12 14:34:45.540 Simple[10381:1071508] Name : Rex 6473924485020127, Age : 6473924485020127, Key : 6473924485020127
 2015-06-12 14:34:45.534 Simple[10381:1071899] Version 0.93.1 of Realm is now available: https://github.com/realm/realm-cocoa/blob/v0.93.1/CHANGELOG.md
