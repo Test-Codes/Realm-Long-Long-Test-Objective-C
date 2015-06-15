@@ -22,7 +22,7 @@
 @interface Dog : RLMObject
 @property long long key;
 @property NSString *name;
-@property NSInteger age;
+@property long long age;
 @end
 
 @implementation Dog
@@ -41,6 +41,11 @@
     
     // Realms are used to group data together
     RLMRealm *realm = [RLMRealm defaultRealm]; // Create realm pointing to default file
+    
+    [realm beginWriteTransaction];
+    [realm deleteAllObjects];
+    [realm commitWriteTransaction];
+    
     [self realmTestWith:realm];
     return YES;
 }
@@ -65,7 +70,7 @@
         NSLog(@"Number of dogs: %li", (unsigned long)dogs.count);
         for (int i = 0; i < dogs.count; i++) {
             Dog *dog = [dogs objectAtIndex:i];
-            NSLog(@"Name : %@, Age : %ld, Key : %llu", dog.name, dog.age, dog.key);
+            NSLog(@"Name : %@, Age : %llu, Key : %llu", dog.name, dog.age, dog.key);
         }
     }
     
@@ -87,7 +92,7 @@
         NSLog(@"Number of dogs: %li", (unsigned long)dogs.count);
         for (int i = 0; i < dogs.count; i++) {
             Dog *dog = [dogs objectAtIndex:i];
-            NSLog(@"Name : %@, Age : %ld, Key : %llu", dog.name, dog.age, dog.key);
+            NSLog(@"Name : %@, Age : %llu, Key : %llu", dog.name, dog.age, dog.key);
         }
     }
 }
