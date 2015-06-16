@@ -57,14 +57,14 @@
         [realm beginWriteTransaction];
         for (long long i = 6473924485019126; i < 6473924485020369; i++) {
             Dog *mydog = [[Dog alloc] init];
-            mydog.key = i;
+            mydog.key = (long long)i;
             mydog.name = [NSString stringWithFormat:@"Rex %llu", i];
-            mydog.age = i;
+            mydog.age = (long long)i;
             [realm addObject:mydog];
         }
         [realm commitWriteTransaction];
         
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"key >= %llu AND key <= %llu", 6473924485020126, 6473924485020369];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"key >= %llu AND key <= %llu", 6473924485020126ULL, 6473924485020369ULL];
         RLMResults *dogs = [Dog objectsWithPredicate:pred];
         
         NSLog(@"Number of dogs: %li", (unsigned long)dogs.count);
@@ -79,14 +79,14 @@
         [realm beginWriteTransaction];
         for (long long i = -100; i < 100; i++) {
             Dog *mydog = [[Dog alloc] init];
-            mydog.key = i;
+            mydog.key = (long long)i;
             mydog.name = [NSString stringWithFormat:@"Rex %llu", i];
-            mydog.age = i;
+            mydog.age = (long long)i;
             [realm addObject:mydog];
         }
         [realm commitWriteTransaction];
         
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"key <= %llu", 9];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"key <= %llu", 9ULL];
         RLMResults *dogs = [Dog objectsWithPredicate:pred];
         
         NSLog(@"Number of dogs: %li", (unsigned long)dogs.count);
